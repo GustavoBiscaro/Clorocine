@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
     <!-- Compiled and minified JavaScript -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -29,5 +30,27 @@
       </ul>
     </div>
   </nav>
+<div class="row">
+    <div class="col s3">
+    <div class="card">
+    <div class="card-image">
+      <img src="http://materializecss.com/images/sample-1.jpg">
+      <span class="card-title">Vingadores</span>
+      <a class="btn-floating halfway-fab waves-effect waves-light red"><i class="material-icons">favorite_border</i></a>
+        <i class="material-icons">favorite_border</i>
+    </a>
+    </div>
+    <div class="card-content">
+    <i class="material-icons">star</i>
+      <p>I am a very simple card. I am good at containing small bits of information. I am convenient because I require little markup to use effectively.</p>
+    </div>
+  </div>
+    
+    </div>
+
+</div>
+ 
+
+
 </body>
 </html>
