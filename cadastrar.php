@@ -63,7 +63,16 @@
                     <label for="nota">Nota</label>
                </div>
             </div>
-
+          <!--input capa -->
+          <div class="file-field input-field">
+      <div class="btn purple lighten-2 black-text">
+        <span>Capa</span>
+        <input type="file">
+      </div>
+      <div class="file-path-wrapper">
+        <input class="file-path validate" type="text">
+      </div>
+      </div>
            
             <div class="card-action">
                 <a class="btn waves-effect waves-light grey" href="galeria.php">Cancelar</a>
