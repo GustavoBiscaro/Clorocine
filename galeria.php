@@ -46,10 +46,10 @@ $filme2 = [
       </ul>
     </div>
   </nav>
-
-  <div class="row">
+   
+   <div class="container"> <div class="row">
     <?php while ($filme = $filmes->fetchArray()) :?>
-    <div class="col s3">
+    <div class="col s12 m6 l3">
       <div class="card hoverable">
     <div class="card-image">
       <img src="<?= $filme["poster"] ?>">
@@ -66,6 +66,7 @@ $filme2 = [
   </div>
 </div>
 <?php endwhile ?>
-
+</div>
+ 
 </body>
 </html>
