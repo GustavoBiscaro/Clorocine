@@ -1,6 +1,12 @@
 <?php include "cabecalho.php" ?>
 
 <?php
+
+
+$bd = new SQLite3("filmes.db");
+$sql = "SELECT * FROM filmes";
+$filmes = $bd->query($sql);
+
 $filme1 = [
   "titulo"=>"Vingadores: Ultimato", 
   "nota" => 8.6,
@@ -16,7 +22,7 @@ $filme2 = [
 ];
 
 
-$filmes = [$filme1, $filme2];
+//$filmes = [$filme1, $filme2];
 
 
 
@@ -42,9 +48,7 @@ $filmes = [$filme1, $filme2];
   </nav>
 
   <div class="row">
-    <?php 
-      foreach($filmes as $filme) :
-      ?>
+    <?php while ($filme = $filmes->fetchArray()) :?>
     <div class="col s3">
       <div class="card hoverable">
     <div class="card-image">
@@ -61,7 +65,7 @@ $filmes = [$filme1, $filme2];
     </div>
   </div>
 </div>
-<?php endforeach ?>
+<?php endwhile ?>
 
 </body>
 </html>
