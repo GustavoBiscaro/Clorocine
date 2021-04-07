@@ -7,25 +7,6 @@ $bd = new SQLite3("filmes.db");
 $sql = "SELECT * FROM filmes";
 $filmes = $bd->query($sql);
 
-$filme1 = [
-  "titulo"=>"Vingadores: Ultimato", 
-  "nota" => 8.6,
-  "sinopse" => "Após os eventos devastadores de 'Vingadores: Guerra Infinita', o universo está em ruínas devido aos esforços do Titã Louco, Thanos. Com a ajuda de aliados remanescentes, os Vingadores devem se reunir mais uma vez a fim de desfazer as ações de Thanos e restaurar a ordem no universo de uma vez por todas, não importando as consequências.",
-  "poster" => "https://www.themoviedb.org/t/p/original/q6725aR8Zs4IwGMXzZT8aC8lh41.jpg"
-];
-
-$filme2 = [
-  "titulo"=>"Liga Da Justiça de Zack Snyder", 
-  "nota" => 8.6,
-  "sinopse" => "Determinado a garantir que o sacrifício final do Superman não foi em vão, Bruce Wayne alinha forças com Diana Prince com planos de recrutar uma equipe de metahumanos para proteger o mundo de uma ameaça de proporções catastróficas que se aproxima.",
-  "poster" => "https://www.themoviedb.org/t/p/w300/v9XwEXYWpxt2rpkmFBiQ1zeyKUy.jpg"
-];
-
-
-//$filmes = [$filme1, $filme2];
-
-
-
 ?>
 <body>
 <nav class="nav-extended purple lighten-3">
@@ -67,6 +48,15 @@ $filme2 = [
 </div>
 <?php endwhile ?>
 </div>
- 
 </body>
+
+<?php if(isset($_GET["msg"])) : ?>
+<script>
+M.toast({
+  html: '<?= $_GET["msg"] ?>'
+});
+
+</script>
+<?php endif ?>
+
 </html>
