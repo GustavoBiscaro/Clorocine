@@ -2,11 +2,10 @@
 
 <?php
 
+require "./repository/FilmesRepositoryPDO.php";
 
-$bd = new SQLite3("filmes.db");
-$sql = "SELECT * FROM filmes";
-$filmes = $bd->query($sql);
-
+$filmesRepository = new FilmesRepositoryPDO();
+$filmes = $filmesRepository->listarTodos();
 ?>
 <body>
 <nav class="nav-extended purple lighten-3">
@@ -29,7 +28,7 @@ $filmes = $bd->query($sql);
   </nav>
    
    <div class="container"> <div class="row">
-    <?php while ($filme = $filmes->fetchArray()) :?>
+    <?php foreach ($filmes as $filme) :?>
     <div class="col s12 m6 l3">
       <div class="card hoverable">
     <div class="card-image">
@@ -46,7 +45,7 @@ $filmes = $bd->query($sql);
     </div>
   </div>
 </div>
-<?php endwhile ?>
+<?php endforeach ?>
 </div>
 </body>
 
