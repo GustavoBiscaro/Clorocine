@@ -2,36 +2,38 @@
 
 require "Conexao.php";
 
-class FilmesRepositoryPDO {
+class FilmesRepositoryPDO{
 
     private $conexao;
-    public function construct()
-    {
-        $this->conexao = Conexao::criar();
+
+    public function __construct(){
+        $this->conexao =  Conexao::criar();
     }
-    public  function listarTodos():array{
-        $bd = Conexao::criar();
+
+    public function listarTodos(){
         $filmesLista = array();
 
         $sql = "SELECT * FROM filmes";
         $filmes = $this->conexao->query($sql);
+        if (!$filmes) return false;
+        
         while ($filme = $filmes->fetchObject()){
             array_push($filmesLista, $filme);
         }
         return $filmesLista;
     }
 
-    public function salvar(Filme $filme):bool {
+    public function salvar(Filme $filme):bool{
         $sql = "INSERT INTO filmes (titulo, poster, sinopse, nota) 
         VALUES (:titulo, :poster, :sinopse, :nota)";
-
         $stmt = $this->conexao->prepare($sql);
-        $stmt->bindValue(':titulo', $filme->titulo, SQLITE3_TEXT);
-        $stmt->bindValue(':sinopse', $filme->sinopse, SQLITE3_TEXT);
-        $stmt->bindValue(':nota', $filme->nota, SQLITE3_FLOAT);
-        $stmt->bindValue(':poster', $filme->poster, SQLITE3_TEXT);
+        $stmt->bindValue(':titulo', $filme->titulo, PDO::PARAM_STR);
+        $stmt->bindValue(':sinopse', $filme->sinopse, PDO::PARAM_STR);
+        $stmt->bindValue(':nota', $filme->nota, PDO::PARAM_STR);
+        $stmt->bindValue(':poster', $filme->poster, PDO::PARAM_STR);
 
         return $stmt->execute();
     }
 }
-?>
+
+
